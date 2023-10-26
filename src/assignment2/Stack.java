@@ -36,6 +36,7 @@ public class Stack<E> {
 
   /**
    * pushes element in the stack.
+   * Time complexity is O(1)
    */
   public void push(E element) {
     // validate whether the stack is full
@@ -47,7 +48,7 @@ public class Stack<E> {
 
   /**
    * removes the latest element from the stack and returns it.
-   *
+   * Time complexity is O(1) in average case, O(n) in worst case
    * @return E
    */
   public E pop() {

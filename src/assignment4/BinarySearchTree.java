@@ -47,6 +47,20 @@ public class BinarySearchTree {
 
   public Node root;
 
+  /**
+   * @param root            node
+   * @param studentNumber   7 characters
+   * @param studentLastName 25 characters
+   * @param homeDepartment  4 characters
+   * @param program         4 characters
+   * @param year            1 character
+   * @param comparator      for comparing
+   * @return node
+   * <p>
+   * Time complexity is O(log n) in best case when the tree is balanced, worst case is O(n)
+   * <p>
+   * Space complexity is O(log n) in best case when the tree is balanced, worst case is O(n)
+   */
   public Node insert(Node root, String studentNumber, String studentLastName, String homeDepartment,
       String program, int year, Comparator<Node> comparator) {
     if (root == null) {
@@ -66,6 +80,16 @@ public class BinarySearchTree {
     return root;
   }
 
+  /**
+   * @param root            node
+   * @param studentLastName 25 characters
+   * @param comparator      for comparing
+   * @return node
+   * <p>
+   * Time complexity is O(log n) in best case when the tree is balanced, worst case is O(n)
+   * <p>
+   * Space complexity is O(log n) in best case when the tree is balanced, worst case is O(n)
+   */
   public Node delete(Node root, String studentLastName, Comparator<Node> comparator) {
     if (root == null) {
       return null;
@@ -103,6 +127,14 @@ public class BinarySearchTree {
     }
   }
 
+  /**
+   * @param fileName input file
+   * @throws IOException for exception
+   *                     <p>
+   *                     Time complexity is O(n * log n)
+   *                     <p>
+   *                     Space complexity is O(log n)
+   */
   public void buildBinarySearchTreeFromTextFile(String fileName) throws IOException {
     BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName));
     String line;
@@ -132,6 +164,8 @@ public class BinarySearchTree {
   }
 
   // depth-first traversal
+  // Time complexity is O(n)
+  // Space complexity is O(log n) in best case when the tree is balanced, worst case is O(n)
   public List<Node> inOrderTraversal() throws IOException {
     FileWriter fileWriter = new FileWriter("src/assignment4/textfile/task-2_inOrderTraversal.txt");
     List<Node> nodeList = new ArrayList<>();
@@ -153,6 +187,8 @@ public class BinarySearchTree {
     }
   }
 
+  // Time complexity is O(n)
+  // Space complexity is O(log n) in best case when the tree is balanced, worst case is O(n)
   public List<Node> preOrderTraversal() {
     List<Node> nodeList = new ArrayList<>();
     preOrderTraversal(root, nodeList);
@@ -167,6 +203,8 @@ public class BinarySearchTree {
     }
   }
 
+  // Time complexity is O(n)
+  // Space complexity is O(log n) in best case when the tree is balanced, worst case is O(n)
   public List<Node> postOrderTraversal() {
     List<Node> nodeList = new ArrayList<>();
     postOrderTraversal(root, nodeList);
@@ -182,6 +220,8 @@ public class BinarySearchTree {
   }
 
   // breadth-first traversal
+  // Time complexity is O(n)
+  // Space complexity is O(n)
   public List<Node> levelOrderTraversal() throws IOException {
     FileWriter fileWriter = new FileWriter(
         "src/assignment4/textfile/task-3_levelOrderTraversal.txt");
@@ -225,6 +265,8 @@ public class BinarySearchTree {
     }
   }
 
+  // Time complexity is O(log n) in best case when the tree is balanced, worst case is O(n)
+  // Space complexity is O(log n) in best case when the tree is balanced, worst case is O(n)
   private String inOrderSuccessor(Node root) {
     String min = root.studentLastName;
     while (root.left != null) {

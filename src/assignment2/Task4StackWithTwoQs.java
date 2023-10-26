@@ -17,7 +17,8 @@ public class Task4StackWithTwoQs<E> {
   // all stack methods
 
   /**
-   * pushes x in the stack.
+   * pushes x in the stack. Time complexity is O(1) in average case, it is O(n) in worst case Space
+   * complexity is O(1)
    */
   public void push(E element) {
     queueOne.enqueue(element);
@@ -25,7 +26,8 @@ public class Task4StackWithTwoQs<E> {
   }
 
   /**
-   * removes the latest element from the stack and returns it.
+   * removes the latest element from the stack and returns it. Time complexity is O(n), Space
+   * complexity is O(1)
    */
   public E pop() {
     if (isEmpty()) {
@@ -37,19 +39,21 @@ public class Task4StackWithTwoQs<E> {
       topElement = queueOne.dequeue();
       queueTwo.enqueue(topElement);
     }
-    //The swap operation is used to make queueTwo the new queueOne and vice versa, so the data structure is ready for subsequent push and pop operations.
-    //
-    //So, the swap effectively switches the roles of queueOne and queueTwo, ensuring that the stack always pops the last element added. This way, the two queues work together to maintain the LIFO behavior of a stack.
 
+    // dequeue the last element from queueOne (the top element of the stack)
     E poppedElement = queueOne.dequeue();
+
+    // swap the roles of queueOne and queueTwo to make queueTwo the new queueOne for later push and pop operations
     Queue<E> temp = queueOne;
     queueOne = queueTwo;
     queueTwo = temp;
+    // top clement
     return poppedElement;
   }
 
   /**
-   * returns the latest element from the stack without removing it
+   * returns the latest element from the stack without removing it Time complexity is O(1), Space
+   * complexity is O(1)
    */
   public E peek() {
     return topElement;

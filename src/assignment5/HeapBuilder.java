@@ -33,6 +33,8 @@ public class HeapBuilder {
    * @return Node
    */
   // return the root of the binary tree (min value)
+  // Time complexity is O(n * log(n))
+  // Space complexity is O(n)
   public Node createMinHeap(List<Integer> values) {
     if (values == null || values.isEmpty()) {
       return null;
@@ -45,6 +47,9 @@ public class HeapBuilder {
     return minHeap.poll();
   }
 
+  // return the root of the binary tree (max value)
+  // Time complexity is O(n * log(n))
+  // Space complexity is O(n)
   public Node createMaxHeap(List<Integer> values) {
     if (values == null || values.isEmpty()) {
       return null;

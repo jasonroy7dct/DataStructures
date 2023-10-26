@@ -15,6 +15,10 @@ public class BSTToHeapTransformer {
 
   /**
    * Takes the root node of a BST and converts it into a Min-Heap
+   * <p>
+   * Time complexity is O(n)
+   * <p>
+   * Space complexity is O(n) in the worst case, O(log n) in the balanced tree
    *
    * @param bst The root node of the BST to be converted into a Min-Heap.
    * @return List<Node> Min heap
@@ -44,6 +48,16 @@ public class BSTToHeapTransformer {
     }
   }
 
+  /**
+   * Takes the root node of a BST and converts it into a Max-Heap
+   * <p>
+   * Time complexity is O(n * log(n))
+   * <p>
+   * Space complexity is O(n) in the worst case, O(log n) in the balanced tree
+   *
+   * @param bst The root node of the BST to be converted into a Max-Heap.
+   * @return List<Node> Max heap
+   */
   public static List<Node> bstToMaxHeap(Node bst) {
     index = 0;
     // initial the arrayList

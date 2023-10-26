@@ -2,15 +2,8 @@ package assignment3;
 
 import java.util.LinkedList;
 
-// x = string for the assignment
 public class HashTable {
 
-  //The expected runtime of data retrieval (e.g., getitem) from a well-implemented Hashtable is typically:
-  //
-  //O(1)
-  // The worst-case runtime of data retrieval (e.g., getitem) from a Hashtable is typically:
-  //
-  //O(n)
   public static class HashNode {
 
     String key;
@@ -44,12 +37,21 @@ public class HashTable {
   /**
    * hash(x): A hash function that converts a string x to an integer, i.e., index in the hashtable.
    * You can implement any hash function described in the textbook. Your hash function must have a
-   * collision-resolution mechanism.
+   * collision-resolution mechanism. Time complexity is O(1)
    */
   private int hash(String key) {
     int hashValue = key.hashCode();
     return Math.abs(hashValue % capacity);
   }
+
+  /**
+   * insert(x):  Insert string x to the HashTable in the index returned by hash(x).
+   * <p>
+   * Time complexity is O(1), worst case is O(n), space complexity is O(n)
+   *
+   * @param key   key of the value
+   * @param value data
+   */
 
   public void insert(String key, String value) {
     int index = hash(key);
@@ -66,6 +68,12 @@ public class HashTable {
     size++;
   }
 
+  /**
+   * insert(x):  Insert string x to the HashTable in the index returned by hash(x).
+   * Time complexity is O(1), worst case is O(n), space complexity is O(n)
+   * @param key to find value
+   * @return string
+   */
   public String get(String key) {
     int index = hash(key);
     LinkedList<HashNode> hashNodeLinkedList = hashTable[index];
@@ -77,6 +85,10 @@ public class HashTable {
     return null;
   }
 
+  /**
+   * size():  Returns the size of the elements, i.e., the number of keys.
+   * @return int size
+   */
   public int size() {
     return size;
   }

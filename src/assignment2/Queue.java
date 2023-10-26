@@ -23,6 +23,7 @@ public class Queue<E> {
 
   /**
    * enqueue element at the back in the queue.
+   * Time complexity is O(1) in average case, it is O(n) in worst case
    */
   public void enqueue(E element) {
     if (isEmpty()) {
@@ -36,6 +37,7 @@ public class Queue<E> {
 
   /**
    * remove and return the earliest element from the queue.
+   * Time complexity is O(1) in best case, it is O(n) in worst case
    */
   public E dequeue() {
     if (this.isEmpty()) {
@@ -53,7 +55,7 @@ public class Queue<E> {
 
   /**
    * returns the earliest element without removing it.
-   *
+   * Time complexity is O(1)
    * @return E
    */
   public E poll() {
