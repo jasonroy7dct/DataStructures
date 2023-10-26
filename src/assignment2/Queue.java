@@ -1,31 +1,37 @@
 package assignment2;
 
 import java.util.ArrayList;
-import java.util.NoSuchElementException;
 
+/**
+ * Task-3: Implement a Queue data structure from scratch. You cannot use built-in Queue APIs. You
+ * can use the built-in Array or List or your custom-built LinkedList.  The Queue class must have
+ * the following functions. Write sample test cases to validate your implementation.
+ *
+ * @param <E>
+ */
+// Generics for putting different object
 public class Queue<E> {
 
   int front = -1;
-  int rear = -1;
+  int back = -1;
 
   private final ArrayList<E> elements;
 
-  public Queue(ArrayList<E> elements) {
-    this.elements = elements;
+  public Queue() {
+    elements = new ArrayList<>();
   }
 
   /**
-   * enqueue element in the queue.
+   * enqueue element at the back in the queue.
    */
   public void enqueue(E element) {
     if (isEmpty()) {
       front = 0;
-      rear = 0;
-      elements.add(element);
+      back = 0;
     } else {
-      rear++;
-      elements.set(rear, element);
+      back++;
     }
+    elements.add(element);
   }
 
   /**
@@ -39,9 +45,7 @@ public class Queue<E> {
       elements.remove(front);
       if (isEmpty()) {
         front = -1;
-        rear = -1;
-      } else {
-        front++;
+        back = -1;
       }
       return removedElement;
     }

@@ -1,7 +1,6 @@
 package assignment2;
 
 public class Task2 {
-
   /**
    * Task-2: Given a string str that represents an arithmetic expression, evaluate the arithmetic
    * expression. The arithmetic expression can only include any arithmetic operators (i.e., +, -, /,

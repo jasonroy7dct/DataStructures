@@ -3,6 +3,13 @@ package assignment2;
 import java.util.ArrayList;
 import java.util.EmptyStackException;
 
+/**
+ * Task-1: Implement a stack data structure from scratch. You can’t use built-in Stack APIs. You can
+ * use the built-in Array or List or your custom-built LinkedList.  The Stack class must have the
+ * following functions. Write sample test cases to validate your implementation.
+ *
+ * @param <E>
+ */
 // Generics for putting different object
 public class Stack<E> {
 
@@ -64,7 +71,11 @@ public class Stack<E> {
     return elements.get(elements.size() - 1);
   }
 
-  //returns the size of the stack.
+  /**
+   * returns the size of the stack.
+   *
+   * @return int
+   */
   public int size() {
     return elements.size();
   }
