@@ -48,6 +48,12 @@ public class HashTable {
    * insert(x):  Insert string x to the HashTable in the index returned by hash(x).
    * <p>
    * Time complexity is O(1), worst case is O(n), space complexity is O(n)
+   * <p>
+   * use separate chaining to solve the collision issue
+   * <p>
+   * Advantages: Simple to implement. Efficient for a wide range of load factors. Disadvantages: Can
+   * result in inefficient memory usage, especially when the load factor is low. Slower lookup times
+   * for high load factors or when collisions are frequent.
    *
    * @param key   key of the value
    * @param value data
@@ -69,8 +75,9 @@ public class HashTable {
   }
 
   /**
-   * insert(x):  Insert string x to the HashTable in the index returned by hash(x).
-   * Time complexity is O(1), worst case is O(n), space complexity is O(n)
+   * insert(x):  Insert string x to the HashTable in the index returned by hash(x). Time complexity
+   * is O(1), worst case is O(n), space complexity is O(n)
+   *
    * @param key to find value
    * @return string
    */
@@ -86,7 +93,27 @@ public class HashTable {
   }
 
   /**
+   * remove(x): Delete string x of the HashTable in the index and returned the removed x
+   *
+   * @param key to find value
+   * @return removed value
+   */
+  public String remove(String key) {
+    int index = hash(key);
+    LinkedList<HashNode> hashNodeLinkedList = hashTable[index];
+    for (HashNode hashNode : hashNodeLinkedList) {
+      if (hashNode.key.equals(key)) {
+        String removedValue = hashNode.value;
+        hashNodeLinkedList.remove(hashNode);
+        return removedValue;
+      }
+    }
+    return null;
+  }
+
+  /**
    * size():  Returns the size of the elements, i.e., the number of keys.
+   *
    * @return int size
    */
   public int size() {
